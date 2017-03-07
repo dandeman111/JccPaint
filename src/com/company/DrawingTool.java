@@ -49,6 +49,8 @@ public class DrawingTool extends Application {
         root.getChildren().add(canvas);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        //ik commit deze shit
     }
 
 
