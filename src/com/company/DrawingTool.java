@@ -32,25 +32,29 @@ public class DrawingTool extends Application {
         StackPane root = new StackPane();
 
 
-        this.canvas = new Canvas();
-        this.javaFxPaintable = new JavaFxPaintable(canvas.getGraphicsContext2D());
-        this.drawing = new Drawing("dr");
+        this.canvas = new Canvas(500,500);
         gp = canvas.getGraphicsContext2D();
-        drawing.addDrawingItem(new Oval(new Point(10,10),50,50,1,Color.BLACK));
+        this.javaFxPaintable = new JavaFxPaintable(gp);
+        this.drawing = new Drawing("Drawing Tool");
+        Oval  oval = new Oval(new Point(10,10),50,50,1,Color.BLACK);
+
+        drawing.addDrawingItem( oval);
+
+        javaFxPaintable.paint(oval);
 
         //for (DrawingItem d :drawing.getItems()) {
         //    if(d.getClass() == Oval.class){
         //        canvas.getGraphicsContext2D().strokeOval(d.getAnchor().getX(),d.getAnchor().getY(),d.getWidth(),d.getHeight());
         //    }
         //}
-        Scene scene = new Scene(root, 400,400);
-        gp.strokeOval(12,12,12,12);
 
+        javaFxPaintable.paint((Oval)drawing.getItems().get(0));
         root.getChildren().add(canvas);
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Drawing Tool");
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        //ik commit deze shit
     }
 
 

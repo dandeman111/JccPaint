@@ -15,7 +15,7 @@ public class JavaFxPaintable implements Paintable {
 
     @Override
     public void paint(Oval oval) {
-
+     graphics.strokeOval(oval.getAnchor().getX(),oval.getAnchor().getY(),oval.getWidth(),oval.getHeight());
     }
 
     @Override
