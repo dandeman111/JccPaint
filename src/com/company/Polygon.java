@@ -68,5 +68,23 @@ public class Polygon extends DrawingItem {
         return anchor.toString() + " Polygon " + color;
     }
 
+    public double[] getX(){
+        int i  = 0;
+        double[] xCoordinates = new double[vertices.length];
+        for (Point p:vertices
+             ) {xCoordinates[i] = p.getX(); i++;
+            
+        }
+        return xCoordinates;
+    }
 
+    public double[] getY(){
+        int i  = 0;
+        double[] yCoordinates = new double[vertices.length];
+        for (Point p:vertices
+                ) {yCoordinates[i] = p.getY(); i++;
+
+        }
+        return yCoordinates;
+    }
 }

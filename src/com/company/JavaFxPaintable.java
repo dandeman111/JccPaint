@@ -20,7 +20,7 @@ public class JavaFxPaintable implements Paintable {
 
     @Override
     public void paint(Polygon polygon) {
-
+      graphics.fillPolygon(polygon.getX(),polygon.getY(),polygon.getVertices().length);
     }
 
     @Override

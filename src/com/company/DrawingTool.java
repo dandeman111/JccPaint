@@ -37,18 +37,32 @@ public class DrawingTool extends Application {
         this.javaFxPaintable = new JavaFxPaintable(gp);
         this.drawing = new Drawing("Drawing Tool");
         Oval  oval = new Oval(new Point(10,10),50,50,1,Color.BLACK);
+        Point[] points = new Point[3];
+        points[0] = new Point(10,10);
+        points[1] = new Point(20,10);
+        points[2] = new Point(20,20);
+        Polygon poly = new Polygon(points,1,points[0],1,1,Color.BLACK);
 
         drawing.addDrawingItem( oval);
+        drawing.addDrawingItem(poly);
 
-        javaFxPaintable.paint(oval);
+       // javaFxPaintable.paint(oval);
 
-        //for (DrawingItem d :drawing.getItems()) {
-        //    if(d.getClass() == Oval.class){
-        //        canvas.getGraphicsContext2D().strokeOval(d.getAnchor().getX(),d.getAnchor().getY(),d.getWidth(),d.getHeight());
-        //    }
-        //}
+        for (DrawingItem d :drawing.getItems()) {
+            if(d.getClass() == Oval.class){
+                javaFxPaintable.paint((Oval)d);
+            }else{
+                if(d.getClass()== Polygon.class){
+                    javaFxPaintable.paint((Polygon)d);
+                }else{
+                    if(d.getClass() == PaintedText.class){
+                        javaFxPaintable.paint((PaintedText)d);
+                    }
+                }
+            }
 
-        javaFxPaintable.paint((Oval)drawing.getItems().get(0));
+        }
+
         root.getChildren().add(canvas);
         Scene scene = new Scene(root);
         primaryStage.setTitle("Drawing Tool");
