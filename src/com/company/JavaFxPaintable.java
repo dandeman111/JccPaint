@@ -20,12 +20,12 @@ public class JavaFxPaintable implements Paintable {
 
     @Override
     public void paint(Polygon polygon) {
-      graphics.fillPolygon(polygon.getX(),polygon.getY(),polygon.getVertices().length);
+      graphics.strokePolygon(polygon.getX(),polygon.getY(),polygon.getVertices().length);
     }
 
     @Override
     public void paint(PaintedText text) {
-
+      graphics.strokeText(text.getContent(),text.getAnchor().getX(),text.getAnchor().getY());
     }
 
     @Override

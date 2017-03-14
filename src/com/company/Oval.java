@@ -36,6 +36,10 @@ public class Oval extends DrawingItem {
         this.width = width;
     }
 
+    public void paintUsing(Paintable p){
+        p.paint(this);
+    }
+
     @Override
     public double getHeight() {
         return height;

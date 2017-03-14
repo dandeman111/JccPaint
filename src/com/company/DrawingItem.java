@@ -13,9 +13,7 @@ public abstract class DrawingItem {
         return previousState;
     }
 
-    public void paintUsing(Paintable paintable){
-
-    }
+    public abstract void paintUsing(Paintable paintable);
 
     public void setPreviousState(DrawingItem previousState) {
         this.previousState = previousState;

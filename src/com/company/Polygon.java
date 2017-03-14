@@ -87,4 +87,7 @@ public class Polygon extends DrawingItem {
         }
         return yCoordinates;
     }
+    public void paintUsing(Paintable p){
+        p.paint(this);
+    }
 }

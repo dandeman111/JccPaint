@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 
+import java.awt.*;
+
 /**
  * Created by dande on 21-2-2017.
  */
@@ -39,28 +41,18 @@ public class DrawingTool extends Application {
         Oval  oval = new Oval(new Point(10,10),50,50,1,Color.BLACK);
         Point[] points = new Point[3];
         points[0] = new Point(10,10);
-        points[1] = new Point(20,10);
-        points[2] = new Point(20,20);
+        points[1] = new Point(50,190);
+        points[2] = new Point(100,20);
         Polygon poly = new Polygon(points,1,points[0],1,1,Color.BLACK);
+
+        PaintedText pt = new PaintedText("Content", "ComicSansMs",new Point(50 ,50),10, 10,Color.BLACK);
 
         drawing.addDrawingItem( oval);
         drawing.addDrawingItem(poly);
+        drawing.addDrawingItem(pt);
 
-       // javaFxPaintable.paint(oval);
-
-        for (DrawingItem d :drawing.getItems()) {
-            if(d.getClass() == Oval.class){
-                javaFxPaintable.paint((Oval)d);
-            }else{
-                if(d.getClass()== Polygon.class){
-                    javaFxPaintable.paint((Polygon)d);
-                }else{
-                    if(d.getClass() == PaintedText.class){
-                        javaFxPaintable.paint((PaintedText)d);
-                    }
-                }
-            }
-
+        for (DrawingItem d :drawing.getItems()){
+           d.paintUsing(javaFxPaintable);
         }
 
         root.getChildren().add(canvas);

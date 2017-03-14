@@ -40,6 +40,10 @@ public class Image extends DrawingItem{
         this.height = height;
     }
 
+    public void paintUsing(Paintable p){
+        p.paint(this);
+    }
+
     @Override
     public Point getAnchor() {
         return anchor;

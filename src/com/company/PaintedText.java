@@ -66,4 +66,8 @@ public class PaintedText extends DrawingItem {
     public String toString(){
         return anchor.toString() + " painted text "+ color;
     }
+
+    public void paintUsing(Paintable p){
+        p.paint(this);
+    }
 }
