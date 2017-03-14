@@ -38,7 +38,7 @@ public class DrawingTool extends Application {
         gp = canvas.getGraphicsContext2D();
         this.javaFxPaintable = new JavaFxPaintable(gp);
         this.drawing = new Drawing("Drawing Tool");
-        Oval  oval = new Oval(new Point(10,10),50,50,1,Color.BLACK);
+        Oval  oval = new Oval(new Point(10,10),50,50,1,Color.BLUE);
         Point[] points = new Point[3];
         points[0] = new Point(10,10);
         points[1] = new Point(50,190);
