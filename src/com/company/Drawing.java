@@ -7,7 +7,7 @@ import java.util.List;
  * Created by dande on 19-2-2017.
  */
 @SuppressWarnings("DefaultFileTemplate")
-public class Drawing {
+public class Drawing implements java.io.Serializable{
     private String name;
     private List<DrawingItem> items;
 

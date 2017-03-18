@@ -4,7 +4,7 @@ package com.company;
  * Created by dande on 14-2-2017.
  */
 @SuppressWarnings("DefaultFileTemplate")
-public abstract class DrawingItem {
+public abstract class DrawingItem implements java.io.Serializable{
     protected Color color;
     protected DrawingItem previousState;
 
