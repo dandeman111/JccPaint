@@ -34,7 +34,8 @@ public class DrawingTool extends Application {
 
         StackPane root = new StackPane();
 
-        pm = new SerializationMediator("TEST1");
+       // pm = new SerializationMediator("TEST1");
+        pm = new DatabaseMediator("","");
         this.canvas = new Canvas(500,500);
         gp = canvas.getGraphicsContext2D();
         this.javaFxPaintable = new JavaFxPaintable(gp);
@@ -53,10 +54,12 @@ public class DrawingTool extends Application {
         drawing.addDrawingItem(pt);
 
 
-        pm.save(drawing);
-        Drawing d1 = pm.load("TEST1");
+        //pm.save(drawing);
+        pm.load("Drawing Tool");
+        //Drawing d1 = pm.load("TEST1");
         System.out.println("gemaakte tekening: " + drawing.toString());
-        System.out.println("geladen tekening: " + d1.toString());
+        //System.out.println("geladen tekening: " + d1.toString());
+
 
         for (DrawingItem d :drawing.getItems()){
            d.paintUsing(javaFxPaintable);
