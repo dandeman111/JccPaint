@@ -24,6 +24,7 @@ public abstract class DrawingItem implements java.io.Serializable{
     }
 
     public void setColor(Color color) {
+        setPreviousState(this);
         this.color = color;
     }
 

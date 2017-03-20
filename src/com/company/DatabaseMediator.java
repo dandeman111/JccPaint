@@ -16,7 +16,7 @@ public class DatabaseMediator implements PersistencyMediator {
     private static final String SQL_SERIALIZE_OBJECT = "INSERT INTO drawingobject(drawingName, drawingBlob) VALUES (?, ?)";
     private static final String SQL_DESERIALIZE_OBJECT = "SELECT drawingBlob FROM drawingobject WHERE drawingname = ?";
 
-    public DatabaseMediator(String conString,String password) {
+    public DatabaseMediator() {
 
 
     }

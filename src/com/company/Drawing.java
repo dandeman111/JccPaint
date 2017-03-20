@@ -7,10 +7,10 @@ import java.util.List;
  * Created by dande on 19-2-2017.
  */
 @SuppressWarnings("DefaultFileTemplate")
-public class Drawing implements java.io.Serializable{
+public class Drawing extends DrawingItem implements java.io.Serializable{
     private String name;
     private List<DrawingItem> items;
-
+    private static final long serialVersionUID = 1L;
 
 public Drawing(String name) {
     this.name = name;
@@ -63,5 +63,30 @@ public void changeItem(DrawingItem itemToChange,DrawingItem newItem){
             output = output + " "+ d.toString();
         }
         return output;
+    }
+    public void draw(JavaFxPaintable jv){
+        for (DrawingItem d : items){
+            d.paintUsing(jv);
+        }
+    }
+
+    @Override
+    public void paintUsing(Paintable paintable) {
+
+    }
+
+    @Override
+    public Point getAnchor() {
+        return null;
+    }
+
+    @Override
+    public double getWidth() {
+        return 0;
+    }
+
+    @Override
+    public double getHeight() {
+        return 0;
     }
 }

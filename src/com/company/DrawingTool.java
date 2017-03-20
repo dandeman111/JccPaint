@@ -19,11 +19,6 @@ public class DrawingTool extends Application {
         launch(args);
     }
 
-    private Canvas canvas;
-    private JavaFxPaintable javaFxPaintable;
-    private Drawing drawing;
-    private GraphicsContext gp;
-    private PersistencyMediator pm;
     public DrawingTool() {
 
     }
@@ -35,11 +30,11 @@ public class DrawingTool extends Application {
         StackPane root = new StackPane();
 
        // pm = new SerializationMediator("TEST1");
-        pm = new DatabaseMediator("","");
-        this.canvas = new Canvas(500,500);
-        gp = canvas.getGraphicsContext2D();
-        this.javaFxPaintable = new JavaFxPaintable(gp);
-        this.drawing = new Drawing("Drawing Tool");
+        PersistencyMediator pm = new DatabaseMediator();
+        Canvas canvas = new Canvas(500, 500);
+        GraphicsContext gp = canvas.getGraphicsContext2D();
+        JavaFxPaintable javaFxPaintable = new JavaFxPaintable(gp);
+        Drawing drawing = new Drawing("Drawing Tool1");
         Oval  oval = new Oval(new Point(10,10),50,50,1,Color.BLUE);
         Point[] points = new Point[3];
         points[0] = new Point(10,10);
@@ -55,15 +50,14 @@ public class DrawingTool extends Application {
 
 
         //pm.save(drawing);
-        pm.load("Drawing Tool");
+
+        pm.load("Drawing Tool1");
         //Drawing d1 = pm.load("TEST1");
         System.out.println("gemaakte tekening: " + drawing.toString());
         //System.out.println("geladen tekening: " + d1.toString());
 
 
-        for (DrawingItem d :drawing.getItems()){
-           d.paintUsing(javaFxPaintable);
-        }
+        drawing.draw(javaFxPaintable);
 
         root.getChildren().add(canvas);
         Scene scene = new Scene(root);
